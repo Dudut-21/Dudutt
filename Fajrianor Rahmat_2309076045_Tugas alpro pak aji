@@ -1,8 +1,22 @@
-# menentukan bilangan random
 import random
+import os
 
-bilangan_acak = [random.randint(1, 300) for _ in range(100)]
-print(bilangan_acak)
+def main():
+    outfile = open("random_nums.txt", "w")
+    for i in range(100):
+        outfile.write(str(random.randint(0, 399)) + " ")
+    outfile.close()
+
+    infile = open("random_nums.txt", "r")
+    nums = infile.read()
+    print(nums, "\n")
+
+    os.system("cls")
+    numbers = [int(x) for x in nums.split()]
+    num_printed = 0
+
+    bilangan_genap = 0
+    bilangan_ganjil = 0
 
 # menentukan bilangan ganjil dan genap
 bilangan_ganjil = [bilangan for bilangan in bilangan_acak if bilangan % 2 != 0]
